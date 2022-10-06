@@ -11,9 +11,9 @@ const server = new ApolloServer({
   context: createContext,
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = Number(process.env.PORT) || 4001;
 
-server.listen(PORT).then(({ url }) => {
+server.listen(4000).then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
 });
 
@@ -90,4 +90,4 @@ io.on('connection', (socket) => {
   });
 });
 
-io.listen(1337);
+io.listen(PORT);
