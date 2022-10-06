@@ -17,7 +17,7 @@ server.listen().then(({ url }) => {
 
 const io = new Server({
   cors: {
-    origin: 'http://localhost:3000',
+    origin: '*',
   },
 });
 
