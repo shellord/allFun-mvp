@@ -8,6 +8,7 @@ const Room: NextPage = () => {
   const playerName = router.query.name as string;
   const roomId = router.query.roomId as string;
   const { scrambledWord, game, submitWord } = useGame(roomId, playerName);
+  const [word, setWord] = React.useState('');
 
   if (game?.finished) {
     return (
@@ -36,16 +37,15 @@ const Room: NextPage = () => {
         <p className='text-4xl tracking-widest font-light'>
           {scrambledWord?.toUpperCase()}
         </p>
-        <div>
+        <div className='flex flex-col space-y-10'>
           <input
             type='text'
             className='border-2 border-gray-300 rounded-md p-2 mt-3'
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                submitWord(e.currentTarget.value);
-              }
+            onChange={(e) => {
+              setWord(e.target.value);
             }}
           />
+          <button onClick={() => submitWord(word)}>Submit Word</button>
         </div>
       </div>
     </div>
