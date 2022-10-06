@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:server": "npm install --prefix server && npm start --prefix server"
+    "start:server": "pnpm install --prefix server && npm start --prefix server"
   },
   "author": "",
   "license": "MIT"
